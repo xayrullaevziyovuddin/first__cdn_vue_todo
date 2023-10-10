@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1>{{title}}</h1>
+        <!-- ================================== -->
+
+        <!--       <select>
+
+            <option v-for=" i in 30" >
+                {{i}}
+            </option>
+
+
+            
+        </select> -->
+        <!-- 
+    
+        <ul>
+
+            <li v-for="(note,i) in notes" :key="i">
+                {{note}}{{i+1}}
+            </li>
+
+        </ul>
+ -->
+
+        <form @submit.prevent="addNote">
+
+            <input type="text" v-model="text">
+            <p>Название заметки: {{text}}</p>
+            <button class="add">Добавить</button>
+
+        </form>
+
+        <ul>
+
+            <li v-for="(note, i) in notes" :key="note.id">
+                <p>id:{{note.id}}</p>
+                <p>Имя заметки:{{note.name}}</p>
+                <p>Ячейка{{i + 1}}</p>
+                <button @click="delNote(note)" class="del">❌</button>
+
+            </li>
+
+        </ul>
+        <h2 v-if="this.notes.length==0">Нет заметок </h2>
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
